@@ -1,12 +1,22 @@
 # 💬 BhashaMitra – Hinglish Chatbot
 
-BhashaMitra is a **Hinglish (Hindi + English) conversational chatbot** that can handle both **task-based intents** (like weather, meeting rescheduling, greetings) and **casual chit-chat**.
+BhashaMitra is a **Hinglish (Hindi + English) conversational chatbot** that can handle both **task-based intents** (like weather, meeting rescheduling, greetings) and **casual chit-chat**.  
 
 It combines:
 - ✅ **Intent classification** using **IndicBERT** fine-tuned on a Hinglish dataset  
 - ✅ **Task-specific rule-based replies**  
-- ✅ **Generative chitchat** using **DialoGPT**  
+- ✅ **Generative chit-chat** using **DialoGPT**  
 - ✅ **Translation pipeline (Hinglish ↔ English)** to make chit-chat responses natural  
+
+---
+
+## 📊 Dataset
+
+This project uses the **[Hinglish Everyday Conversations 1M](https://huggingface.co/datasets/Abhishekcr448/Hinglish-Everyday-Conversations-1M)** dataset from Hugging Face.  
+
+- Contains **~1 million Hinglish conversational pairs**  
+- Covers **casual and daily conversation topics**  
+- Used for **intent training and chit-chat fine-tuning**  
 
 ---
 
@@ -20,25 +30,24 @@ It combines:
 ---
 
 ## 📂 Project Structure
+```text
 bhashamitra/
 ├── src/
-│ ├── api/ # FastAPI backend
-│ │ └── app.py
-│ ├── app/ # Streamlit frontend
-│ │ └── streamlit_chatbot.py
-│ ├── chatbot/ # Chat pipeline
-│ │ └── pipeline.py
-│ ├── data/ # Data preprocessing
-│ ├── generation/ # Chit-chat model
-│ ├── models/ # Training + evaluation
-│ ├── preprocessing/ # Language utilities
-│ └── utils/ # Helpers
-├── bhashamitra/models/ # Saved intent model
+│   ├── api/                  # FastAPI backend
+│   │   └── app.py
+│   ├── app/                  # Streamlit frontend
+│   │   └── streamlit_chatbot.py
+│   ├── chatbot/              # Chat pipeline
+│   │   └── pipeline.py
+│   ├── data/                 # Data preprocessing
+│   ├── generation/           # Chit-chat model
+│   ├── models/               # Training + evaluation
+│   ├── preprocessing/        # Language utilities
+│   └── utils/                # Helpers
+├── bhashamitra/models/       # Saved intent model
 ├── requirements.txt
 └── README.md
 
-yaml
-Copy code
 
 ---
 
@@ -48,41 +57,8 @@ Clone this repository:
 ```bash
 git clone https://github.com/your-username/bhashamitra.git
 cd bhashamitra
-Create a virtual environment:
-
-bash
-Copy code
 python -m venv venv
 .\venv\Scripts\Activate.ps1   # Windows PowerShell
 # OR
 source venv/bin/activate      # Linux/Mac
-Install dependencies:
-
-bash
-Copy code
-pip install -r requirements.txt
-▶️ Usage
-Start the FastAPI backend
-bash
-Copy code
-uvicorn src.api.app:app --reload
-Runs at: http://127.0.0.1:8000
-
-Start the Streamlit frontend
-bash
-Copy code
-streamlit run src/app/streamlit_chatbot.py
-Open in browser: http://localhost:8501
-
-🧠 Training Intent Classifier
-To retrain the intent model:
-
-bash
-Copy code
-python src/models/intent_trainer.py
-Evaluate:
-
-bash
-Copy code
-python src/models/evaluate_intent.py
 
