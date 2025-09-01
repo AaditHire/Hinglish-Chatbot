@@ -1,0 +1,13 @@
+transformers==4.42.4
+torch==2.3.0
+sentencepiece
+indic-nlp-library
+langdetect
+langid
+streamlit
+fastapi
+uvicorn
+pandas
+scikit-learn
+nltk
+numpy
